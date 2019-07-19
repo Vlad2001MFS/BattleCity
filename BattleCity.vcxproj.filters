@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{8af93db1-daa4-4fba-8930-1fdf141ee5ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data">
+      <UniqueIdentifier>{9e477048-8d19-4d17-8aae-d83fc3474dca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\shaders">
+      <UniqueIdentifier>{a6f60fd9-c61e-4924-b261-23b1e1e1c129}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\shaders\simplePS.glsl">
+      <Filter>data\shaders</Filter>
+    </None>
+    <None Include="data\shaders\simpleVS.glsl">
+      <Filter>data\shaders</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="data\shaders\simplePS.hlsl">
+      <Filter>data\shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="data\shaders\simpleVS.hlsl">
+      <Filter>data\shaders</Filter>
+    </FxCompile>
+  </ItemGroup>
+</Project>
