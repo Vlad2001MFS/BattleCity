@@ -4,10 +4,13 @@
 #include "hg2d/Scene.hpp"
 #include "hg2d/Cache.hpp"
 
+const float EditorState::mCameraZoom = -20.0f;
+
 EditorState::EditorState(hg2d::Engine &engine) : AGameState(engine), mBuildCellPos(0, 0) {
 	mEditorFrame = nullptr;
     mEmptyCellTex = nullptr;
     mBuildCellTex = nullptr;
+    mBackgroundTex = nullptr;
 }
 
 void EditorState::onInitialize() {
@@ -15,6 +18,7 @@ void EditorState::onInitialize() {
 
     mEmptyCellTex = mCacheSystem.loadTexture("editor/emptyCell.png");
     mBuildCellTex = mCacheSystem.loadTexture("editor/buildCell.png");
+    mBackgroundTex = mCacheSystem.loadTexture("background.png");
 }
 
 void EditorState::onEvent(const hd::WindowEvent &event) {
@@ -52,10 +56,30 @@ void EditorState::onChangeCurrentState(AGameState *lastState) {
 }
 
 void EditorState::onDraw() {
+    hg2d::RenderOp backgroundRop;
+    backgroundRop.camPos.z = mCameraZoom;
+    backgroundRop.texture = mBackgroundTex;
+
+    backgroundRop.pos = glm::vec2(-38.5, 0);
+    backgroundRop.size = glm::vec2(32, 32);
+    mRenderSystem.addRenderOp(backgroundRop);
+
+    backgroundRop.pos = glm::vec2(38.5, 0);
+    backgroundRop.size = glm::vec2(32, 32);
+    mRenderSystem.addRenderOp(backgroundRop);
+
+    backgroundRop.pos = glm::vec2(0, 38.5);
+    backgroundRop.size = glm::vec2(32, 32);
+    mRenderSystem.addRenderOp(backgroundRop);
+
+    backgroundRop.pos = glm::vec2(0, -38.5);
+    backgroundRop.size = glm::vec2(32, 32);
+    mRenderSystem.addRenderOp(backgroundRop);
+
     for (int y = -6; y <= 6; y++) {
         for (int x = -6; x <= 6; x++) {
             hg2d::RenderOp rop;
-            rop.camPos.z = -20.0f;
+            rop.camPos.z = mCameraZoom;
             rop.pos = glm::vec2(x, y);
             rop.size = glm::vec2(0.5f, 0.5f);
             rop.texture = mEmptyCellTex;
@@ -64,7 +88,7 @@ void EditorState::onDraw() {
     }
 
     hg2d::RenderOp buildCellRop;
-    buildCellRop.camPos.z = -20.0f;
+    buildCellRop.camPos.z = mCameraZoom;
     buildCellRop.pos = mBuildCellPos;
     buildCellRop.size = glm::vec2(0.5f, 0.5f);
     buildCellRop.texture = mBuildCellTex;
