@@ -149,15 +149,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\EditorState.cpp" />
+    <ClCompile Include="src\GameState.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\MenuState.cpp" />
+    <ClCompile Include="src\PauseState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="data\shaders\simplePS.glsl" />
     <None Include="data\shaders\simpleVS.glsl" />
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="data\shaders\simplePS.hlsl" />
-    <FxCompile Include="data\shaders\simpleVS.hlsl" />
+    <FxCompile Include="data\shaders\simplePS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+    </FxCompile>
+    <FxCompile Include="data\shaders\simpleVS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+    </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\EditorState.hpp" />
+    <ClInclude Include="src\GameState.hpp" />
+    <ClInclude Include="src\MenuState.hpp" />
+    <ClInclude Include="src\PauseState.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
