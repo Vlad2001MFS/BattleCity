@@ -13,8 +13,6 @@ void GameState::onEvent(const hd::WindowEvent &event) {
     }
 }
 
-void GameState::onChangeCurrentState(AGameState *newState) {
-	if (newState == this) {
-		mGUISystem.setFrame("");
-	}
+void GameState::onChangeCurrentState(AGameState *lastState) {
+	mGUISystem.setFrame("");
 }

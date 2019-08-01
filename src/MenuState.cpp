@@ -15,10 +15,8 @@ void MenuState::onEvent(const hd::WindowEvent& event) {
 	}
 }
 
-void MenuState::onChangeCurrentState(AGameState* newState) {
-	if (newState == this) {
-		mGUISystem.setFrame("menu");
-	}
+void MenuState::onChangeCurrentState(AGameState *lastState) {
+	mGUISystem.setFrame("menu");
 }
 
 void MenuState::mInitializeMenuFrame() {

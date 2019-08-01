@@ -16,10 +16,8 @@ void EditorState::onEvent(const hd::WindowEvent &event) {
     }
 }
 
-void EditorState::onChangeCurrentState(AGameState* newState) {
-	if (newState == this) {
-		mGUISystem.setFrame("editor");
-	}
+void EditorState::onChangeCurrentState(AGameState *lastState) {
+	mGUISystem.setFrame("editor");
 }
 
 void EditorState::onDraw() {

@@ -15,10 +15,8 @@ void PauseState::onEvent(const hd::WindowEvent& event) {
 	}
 }
 
-void PauseState::onChangeCurrentState(AGameState* newState) {
-	if (newState == this) {
-		mGUISystem.setFrame("pause");
-	}
+void PauseState::onChangeCurrentState(AGameState *lastState) {
+	mGUISystem.setFrame("pause");
 }
 
 void PauseState::mInitializePauseFrame() {

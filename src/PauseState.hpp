@@ -8,7 +8,7 @@ public:
 
     virtual void onInitialize() override;
 	virtual void onEvent(const hd::WindowEvent& event) override;
-	virtual void onChangeCurrentState(AGameState* newState) override;
+	virtual void onChangeCurrentState(AGameState *lastState) override;
 
 private:
     void mInitializePauseFrame();
