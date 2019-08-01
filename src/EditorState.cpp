@@ -137,7 +137,6 @@ void EditorState::onEvent(const hd::WindowEvent &event) {
 void EditorState::onChangeCurrentState(AGameState *lastState) {
 	mGUISystem.setFrame("editor");
     if (lastState == mGameStateSystem.getState("menu")) {
-        mSceneSystem.clear();
         hg2d::HEntity entity = mSceneSystem.createEntity();
         hg2d::TransformComponent *transform = mSceneSystem.createComponent<hg2d::TransformComponent>(entity);
         hg2d::CameraComponent *camera = mSceneSystem.createComponent<hg2d::CameraComponent>(entity);

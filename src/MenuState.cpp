@@ -1,5 +1,6 @@
 #include "MenuState.hpp"
 #include "hg2d/Core.hpp"
+#include "hg2d/Scene.hpp"
 
 MenuState::MenuState(hg2d::Engine &engine) : AGameState(engine) {
 	mMenuFrame = nullptr;
@@ -16,6 +17,7 @@ void MenuState::onEvent(const hd::WindowEvent& event) {
 }
 
 void MenuState::onChangeCurrentState(AGameState *lastState) {
+    mSceneSystem.clear();
 	mGUISystem.setFrame("menu");
 }
 
