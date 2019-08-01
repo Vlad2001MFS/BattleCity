@@ -15,4 +15,7 @@ private:
     void mInitializeEditorFrame();
 
     hg2d::AGUIWidget *mEditorFrame;
+    hg2d::Texture *mEmptyCellTex;
+    hg2d::Texture *mBuildCellTex;
+    glm::vec2 mBuildCellPos;
 };
