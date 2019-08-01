@@ -8,6 +8,9 @@ int main() {
     hg2d::EngineCreateInfo createInfo;
     hg2d::Engine engine(createInfo);
 
+    engine.getSceneSystem().createSystem<hg2d::SpriteSystem>();
+    engine.getSceneSystem().createSystem<hg2d::BodySystem>();
+
     engine.getGameStateSystem().createState<MenuState>("menu");
     engine.getGameStateSystem().createState<PauseState>("pause");
     engine.getGameStateSystem().createState<GameState>("game");
