@@ -27,6 +27,9 @@
     <ClCompile Include="src\PauseState.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\BlockType.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="data\shaders\simplePS.glsl">
@@ -55,6 +58,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\PauseState.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BlockType.hpp">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
