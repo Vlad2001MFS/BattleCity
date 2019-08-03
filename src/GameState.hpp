@@ -1,4 +1,5 @@
 #pragma once
+#include "Common.hpp"
 #include "hg2d/GameState.hpp"
 #include "hg2d/GUI.hpp"
 
@@ -11,5 +12,9 @@ public:
 	virtual void onChangeCurrentState(AGameState *lastState) override;
 
 private:
+    void mSetLevel(int level);
 
+    int mCurrentLevel;
+
+    static const int mLevelsCount;
 };
