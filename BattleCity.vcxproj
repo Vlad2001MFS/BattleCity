@@ -149,7 +149,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\BlockType.cpp" />
+    <ClCompile Include="src\Common.cpp" />
     <ClCompile Include="src\EditorState.cpp" />
     <ClCompile Include="src\GameState.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -169,7 +169,7 @@
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\BlockType.hpp" />
+    <ClInclude Include="src\Common.hpp" />
     <ClInclude Include="src\EditorState.hpp" />
     <ClInclude Include="src\GameState.hpp" />
     <ClInclude Include="src\MenuState.hpp" />

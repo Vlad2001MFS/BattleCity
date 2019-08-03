@@ -27,7 +27,7 @@
     <ClCompile Include="src\PauseState.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\BlockType.cpp">
+    <ClCompile Include="src\Common.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
@@ -60,7 +60,7 @@
     <ClInclude Include="src\PauseState.hpp">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\BlockType.hpp">
+    <ClInclude Include="src\Common.hpp">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

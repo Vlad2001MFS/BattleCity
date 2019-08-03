@@ -29,8 +29,4 @@ private:
 
     hg2d::Texture *mBlockTextures[static_cast<size_t>(BlockType::Count)];
     BlockType mCurrentBlock;
-    
-    static const float mCameraZoom;
-    static const glm::vec2 mBlockSize;
-    static const glm::vec2 mBlockHalfSize;
 };

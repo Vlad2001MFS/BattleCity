@@ -4,10 +4,6 @@
 #include "hg2d/Scene.hpp"
 #include "hg2d/Cache.hpp"
 
-const float EditorState::mCameraZoom = -20.0f;
-const glm::vec2 EditorState::mBlockSize = glm::vec2(0.5f, 0.5f);
-const glm::vec2 EditorState::mBlockHalfSize = EditorState::mBlockSize / 2.0f;
-
 EditorState::EditorState(hg2d::Engine &engine) : AGameState(engine), mBuildCellPos(0, 0), mBlockTextures{nullptr} {
 	mEditorFrame = nullptr;
     mEmptyCellTex = nullptr;
@@ -86,39 +82,39 @@ void EditorState::onEvent(const hd::WindowEvent &event) {
             case hd::KeyCode::Numpad0: {
                 if (mCurrentBlock == BlockType::Empty) {
                     if (!mDestroyBlock(mBuildCellPos)) {
-                        mDestroyBlock(mBuildCellPos + glm::vec2(-mBlockHalfSize.x, -mBlockHalfSize.y));
-                        mDestroyBlock(mBuildCellPos + glm::vec2(-mBlockHalfSize.x, mBlockHalfSize.y));
-                        mDestroyBlock(mBuildCellPos + glm::vec2(mBlockHalfSize.x, mBlockHalfSize.y));
-                        mDestroyBlock(mBuildCellPos + glm::vec2(mBlockHalfSize.x, -mBlockHalfSize.y));
+                        mDestroyBlock(mBuildCellPos + glm::vec2(-gBlockHalfSize.x, -gBlockHalfSize.y));
+                        mDestroyBlock(mBuildCellPos + glm::vec2(-gBlockHalfSize.x, gBlockHalfSize.y));
+                        mDestroyBlock(mBuildCellPos + glm::vec2(gBlockHalfSize.x, gBlockHalfSize.y));
+                        mDestroyBlock(mBuildCellPos + glm::vec2(gBlockHalfSize.x, -gBlockHalfSize.y));
                     }
                 }
                 else {
                     if (mCurrentBlock == BlockType::Base) {
-                        mCreateBlock(mCurrentBlock, mBuildCellPos, mBlockSize);
+                        mCreateBlock(mCurrentBlock, mBuildCellPos, gBlockSize);
                     }
                     else {
-                        mCreateBlock(mCurrentBlock, mBuildCellPos + glm::vec2(-mBlockHalfSize.x, -mBlockHalfSize.y), mBlockHalfSize);
-                        mCreateBlock(mCurrentBlock, mBuildCellPos + glm::vec2(-mBlockHalfSize.x, mBlockHalfSize.y), mBlockHalfSize);
-                        mCreateBlock(mCurrentBlock, mBuildCellPos + glm::vec2(mBlockHalfSize.x, mBlockHalfSize.y), mBlockHalfSize);
-                        mCreateBlock(mCurrentBlock, mBuildCellPos + glm::vec2(mBlockHalfSize.x, -mBlockHalfSize.y), mBlockHalfSize);
+                        mCreateBlock(mCurrentBlock, mBuildCellPos + glm::vec2(-gBlockHalfSize.x, -gBlockHalfSize.y), gBlockHalfSize);
+                        mCreateBlock(mCurrentBlock, mBuildCellPos + glm::vec2(-gBlockHalfSize.x, gBlockHalfSize.y), gBlockHalfSize);
+                        mCreateBlock(mCurrentBlock, mBuildCellPos + glm::vec2(gBlockHalfSize.x, gBlockHalfSize.y), gBlockHalfSize);
+                        mCreateBlock(mCurrentBlock, mBuildCellPos + glm::vec2(gBlockHalfSize.x, -gBlockHalfSize.y), gBlockHalfSize);
                     }
                 }
                 break;
             }
             case hd::KeyCode::Numpad4: {
-                mProcessMiniBlock(mCurrentBlock, mBuildCellPos + glm::vec2(-mBlockHalfSize.x, mBlockHalfSize.y));
+                mProcessMiniBlock(mCurrentBlock, mBuildCellPos + glm::vec2(-gBlockHalfSize.x, gBlockHalfSize.y));
                 break;
             }
             case hd::KeyCode::Numpad5: {
-                mProcessMiniBlock(mCurrentBlock, mBuildCellPos + glm::vec2(mBlockHalfSize.x, mBlockHalfSize.y));
+                mProcessMiniBlock(mCurrentBlock, mBuildCellPos + glm::vec2(gBlockHalfSize.x, gBlockHalfSize.y));
                 break;
             }
             case hd::KeyCode::Numpad1: {
-                mProcessMiniBlock(mCurrentBlock, mBuildCellPos + glm::vec2(-mBlockHalfSize.x, -mBlockHalfSize.y));
+                mProcessMiniBlock(mCurrentBlock, mBuildCellPos + glm::vec2(-gBlockHalfSize.x, -gBlockHalfSize.y));
                 break;
             }
             case hd::KeyCode::Numpad2: {
-                mProcessMiniBlock(mCurrentBlock, mBuildCellPos + glm::vec2(mBlockHalfSize.x, -mBlockHalfSize.y));
+                mProcessMiniBlock(mCurrentBlock, mBuildCellPos + glm::vec2(gBlockHalfSize.x, -gBlockHalfSize.y));
                 break;
             }
 
@@ -140,14 +136,14 @@ void EditorState::onChangeCurrentState(AGameState *lastState) {
         hg2d::HEntity entity = mSceneSystem.createEntity();
         hg2d::TransformComponent *transform = mSceneSystem.createComponent<hg2d::TransformComponent>(entity);
         hg2d::CameraComponent *camera = mSceneSystem.createComponent<hg2d::CameraComponent>(entity);
-        camera->setZoom(mCameraZoom);
+        camera->setZoom(gCameraZoom);
         mSceneSystem.getSystem<hg2d::SpriteSystem>()->setCameraEntity(entity);
     }
 }
 
 void EditorState::onDraw() {
     hg2d::RenderOp backgroundRop;
-    backgroundRop.camPos.z = mCameraZoom;
+    backgroundRop.camPos.z = gCameraZoom;
     backgroundRop.texture = mBackgroundTex;
 
     backgroundRop.pos = glm::vec2(-38.5, 0);
@@ -169,18 +165,18 @@ void EditorState::onDraw() {
     for (int y = -6; y <= 6; y++) {
         for (int x = -6; x <= 6; x++) {
             hg2d::RenderOp rop;
-            rop.camPos.z = mCameraZoom;
+            rop.camPos.z = gCameraZoom;
             rop.pos = glm::vec2(x, y);
-            rop.size = mBlockSize;
+            rop.size = gBlockSize;
             rop.texture = mEmptyCellTex;
             mRenderSystem.addRenderOp(rop);
         }
     }
 
     hg2d::RenderOp buildCellRop;
-    buildCellRop.camPos.z = mCameraZoom;
+    buildCellRop.camPos.z = gCameraZoom;
     buildCellRop.pos = mBuildCellPos;
-    buildCellRop.size = mBlockSize;
+    buildCellRop.size = gBlockSize;
     buildCellRop.texture = mBuildCellTex;
     mRenderSystem.addRenderOp(buildCellRop);
 }
@@ -235,6 +231,6 @@ void EditorState::mProcessMiniBlock(BlockType type, const glm::vec2 &pos) {
         mDestroyBlock(pos);
     }
     else {
-        mCreateBlock(type, pos, mBlockHalfSize);
+        mCreateBlock(type, pos, gBlockHalfSize);
     }
 }
