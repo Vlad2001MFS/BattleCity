@@ -1,5 +1,5 @@
 #pragma once
-#include "BlockType.hpp"
+#include "Common.hpp"
 #include "hg2d/GameState.hpp"
 #include "hg2d/GUI.hpp"
 

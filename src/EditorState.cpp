@@ -21,7 +21,7 @@ void EditorState::onInitialize() {
 
     mEmptyCellTex = mCacheSystem.loadTexture("editor/emptyCell.png");
     mBuildCellTex = mCacheSystem.loadTexture("editor/buildCell.png");
-    mBackgroundTex = mRenderSystem.createTextureFromColor(hd::Color4(127, 127, 127, 255));
+    mBackgroundTex = mCacheSystem.loadTexture(hd::Color4(127, 127, 127, 255));
 
     for (size_t i = 0; i < static_cast<size_t>(BlockType::Count); i++) {
         mBlockTextures[i] = mCacheSystem.loadTexture(getBlockTexturePath(static_cast<BlockType>(i)));

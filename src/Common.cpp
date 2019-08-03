@@ -1,4 +1,4 @@
-#include "BlockType.hpp"
+#include "Common.hpp"
 
 const std::string &getBlockTexturePath(BlockType type) {
     static const std::string paths[static_cast<size_t>(BlockType::Count)] = {
