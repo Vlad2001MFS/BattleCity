@@ -1,4 +1,5 @@
 #include "GameState.hpp"
+#include "PlayerSystem.hpp"
 #include "hg2d/Core.hpp"
 #include "hg2d/Renderer.hpp"
 #include "hg2d/Scene.hpp"
@@ -12,6 +13,8 @@ GameState::GameState(hg2d::Engine &engine) : AGameState(engine) {
 }
 
 void GameState::onInitialize() {
+    mSceneSystem.createSystem<PlayerSystem>();
+
     mBackgroundTex = mCacheSystem.loadTexture(hd::Color4(127, 127, 127, 255));
 }
 
@@ -65,9 +68,10 @@ void GameState::mSetLevel(int level) {
         hg2d::SpriteComponent *sprite = mSceneSystem.createComponent<hg2d::SpriteComponent>(entity);
         sprite->setTexture(mCacheSystem.loadTexture("player/tank0.png"));
         hg2d::BodyComponent *body = mSceneSystem.createComponent<hg2d::BodyComponent>(entity);
-        body->setType(hg2d::BodyType::Kinematic);
+        body->setType(hg2d::BodyType::Dynamic);
         body->setPosition(glm::vec2(-2, -6));
-        body->setLinearDamping(1.0);
+        body->setLinearDamping(gPlayerSpeed*5.0f);
         body->setBoxShapeSize(gTankSize);
+        PlayerComponent *player = mSceneSystem.createComponent<PlayerComponent>(entity);
     }
 }

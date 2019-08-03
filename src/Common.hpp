@@ -6,6 +6,7 @@ extern const float gCameraZoom;
 extern const glm::vec2 gBlockSize;
 extern const glm::vec2 gBlockHalfSize;
 extern const glm::vec2 gTankSize;
+extern const float gPlayerSpeed;
 
 enum class BlockType {
     Empty,

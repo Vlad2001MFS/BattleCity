@@ -155,6 +155,7 @@
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\MenuState.cpp" />
     <ClCompile Include="src\PauseState.cpp" />
+    <ClCompile Include="src\PlayerSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="data\shaders\simplePS.glsl" />
@@ -174,6 +175,7 @@
     <ClInclude Include="src\GameState.hpp" />
     <ClInclude Include="src\MenuState.hpp" />
     <ClInclude Include="src\PauseState.hpp" />
+    <ClInclude Include="src\PlayerSystem.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
