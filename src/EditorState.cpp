@@ -3,6 +3,7 @@
 #include "hg2d/Renderer.hpp"
 #include "hg2d/Scene.hpp"
 #include "hg2d/Cache.hpp"
+#include "hd/Core/hdStringUtils.hpp"
 
 EditorState::EditorState(hg2d::Engine &engine) : AGameState(engine), mBuildCellPos(0, 0), mBlockTextures{nullptr} {
 	mEditorFrame = nullptr;
@@ -128,6 +129,8 @@ void EditorState::onEvent(const hd::WindowEvent &event) {
             }
         }
     }
+
+    mCurrentBuildCellPosLabel->setText(hd::StringUtils::format("Position: %d %d", static_cast<int>(mBuildCellPos.x), static_cast<int>(mBuildCellPos.y)));
 }
 
 void EditorState::onChangeCurrentState(AGameState *lastState) {
@@ -183,6 +186,7 @@ void EditorState::onDraw() {
 
 void EditorState::mInitializeEditorFrame() {
     mEditorFrame = mGUISystem.createFrame<hg2d::AGUIWidget>("editor");
+
     hg2d::GUIImage *currentBlockBackgroundImage = mEditorFrame->createChild<hg2d::GUIImage>();
     currentBlockBackgroundImage->setAlign(hg2d::GUIHAlign::Left, hg2d::GUIVAlign::Top);
     currentBlockBackgroundImage->setSize(40, 40);
@@ -190,6 +194,9 @@ void EditorState::mInitializeEditorFrame() {
     mCurrentBlockImage = currentBlockBackgroundImage->createChild<hg2d::GUIImage>();
     mCurrentBlockImage->setAlign(hg2d::GUIHAlign::Center, hg2d::GUIVAlign::Center);
     mCurrentBlockImage->setSize(32, 32);
+
+    mCurrentBuildCellPosLabel = mEditorFrame->createChild<hg2d::GUILabel>();
+    mCurrentBuildCellPosLabel->setAlign(hg2d::GUIHAlign::Left, hg2d::GUIVAlign::Top);
 }
 
 void EditorState::mSetCurrentBlock(BlockType type) {

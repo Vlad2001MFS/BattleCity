@@ -10,9 +10,12 @@ public:
     virtual void onInitialize() override;
     virtual void onEvent(const hd::WindowEvent &event) override;
 	virtual void onChangeCurrentState(AGameState *lastState) override;
+	virtual void onDraw() override;
 
 private:
     void mSetLevel(int level);
+
+    hg2d::Texture *mBackgroundTex;
 
     int mCurrentLevel;
 

@@ -21,6 +21,7 @@ private:
 
     hg2d::AGUIWidget *mEditorFrame;
     hg2d::GUIImage *mCurrentBlockImage;
+    hg2d::GUILabel *mCurrentBuildCellPosLabel;
 
     hg2d::Texture *mEmptyCellTex;
     hg2d::Texture *mBuildCellTex;
