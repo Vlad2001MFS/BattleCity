@@ -43,14 +43,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="data\shaders\simplePS.hlsl">
-      <Filter>data\shaders</Filter>
-    </FxCompile>
-    <FxCompile Include="data\shaders\simpleVS.hlsl">
-      <Filter>data\shaders</Filter>
-    </FxCompile>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="src\EditorState.hpp">
       <Filter>src</Filter>
     </ClInclude>
