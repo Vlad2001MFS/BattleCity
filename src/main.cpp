@@ -1,4 +1,7 @@
-#include "hg2d/HgEngine2D.hpp"
+#include "hg2d/Core/Engine.hpp"
+#include "hg2d/GameState/GameStateSystem.hpp"
+#include "hg2d/Scene/SpriteSystem.hpp"
+#include "hg2d/Scene/BodySystem.hpp"
 #include "MenuState.hpp"
 #include "PauseState.hpp"
 #include "GameState.hpp"

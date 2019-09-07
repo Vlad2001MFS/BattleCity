@@ -1,8 +1,11 @@
 #include "EditorState.hpp"
-#include "hg2d/Core.hpp"
-#include "hg2d/Renderer.hpp"
-#include "hg2d/Scene.hpp"
-#include "hg2d/Cache.hpp"
+#include "hg2d/GameState/GameStateSystem.hpp"
+#include "hg2d/Renderer/RenderSystem.hpp"
+#include "hg2d/GUI/GUISystem.hpp"
+#include "hg2d/Scene/SceneSystem.hpp"
+#include "hg2d/Scene/SpriteSystem.hpp"
+#include "hg2d/Scene/BodySystem.hpp"
+#include "hg2d/Cache/CacheSystem.hpp"
 #include "hd/Core/hdStringUtils.hpp"
 
 EditorState::EditorState(hg2d::Engine &engine) : AGameState(engine), mBuildCellPos(0, 0), mBlockTextures{nullptr} {

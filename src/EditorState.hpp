@@ -1,7 +1,9 @@
 #pragma once
 #include "Common.hpp"
-#include "hg2d/GameState.hpp"
-#include "hg2d/GUI.hpp"
+#include "hg2d/GameState/AGameState.hpp"
+#include "hg2d/GUI/AGUIWidget.hpp"
+#include "hg2d/GUI/GUIImage.hpp"
+#include "hg2d/GUI/GUILabel.hpp"
 
 class EditorState final : public hg2d::AGameState {
 public:

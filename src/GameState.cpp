@@ -1,9 +1,12 @@
 #include "GameState.hpp"
 #include "PlayerSystem.hpp"
-#include "hg2d/Core.hpp"
-#include "hg2d/Renderer.hpp"
-#include "hg2d/Scene.hpp"
-#include "hg2d/Cache.hpp"
+#include "hg2d/GameState/GameStateSystem.hpp"
+#include "hg2d/Renderer/RenderSystem.hpp"
+#include "hg2d/GUI/GUISystem.hpp"
+#include "hg2d/Scene/SceneSystem.hpp"
+#include "hg2d/Scene/SpriteSystem.hpp"
+#include "hg2d/Scene/BodySystem.hpp"
+#include "hg2d/Cache/CacheSystem.hpp"
 
 const int GameState::mLevelsCount = 1;
 

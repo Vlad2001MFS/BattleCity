@@ -1,6 +1,9 @@
 #include "PlayerSystem.hpp"
 #include "Common.hpp"
-#include "hg2d/Core.hpp"
+#include "hg2d/Core/Engine.hpp"
+#include "hg2d/Cache/CacheSystem.hpp"
+#include "hg2d/Scene/SpriteSystem.hpp"
+#include "hg2d/Scene/BodySystem.hpp"
 #include "3rd/include/glm/ext.hpp"
 
 PlayerComponent::PlayerComponent(hg2d::Engine &engine) : AECSComponent(engine) {

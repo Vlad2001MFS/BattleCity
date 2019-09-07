@@ -1,6 +1,6 @@
 #pragma once
-#include "hg2d/GameState.hpp"
-#include "hg2d/GUI.hpp"
+#include "hg2d/GameState/AGameState.hpp"
+#include "hg2d/GUI/AGUIWidget.hpp"
 
 class MenuState final : public hg2d::AGameState {
 public:

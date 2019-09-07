@@ -1,6 +1,9 @@
 #include "MenuState.hpp"
-#include "hg2d/Core.hpp"
-#include "hg2d/Scene.hpp"
+#include "hg2d/Core/Engine.hpp"
+#include "hg2d/GameState/GameStateSystem.hpp"
+#include "hg2d/GUI/GUISystem.hpp"
+#include "hg2d/GUI/GUIButton.hpp"
+#include "hg2d/Scene/SceneSystem.hpp"
 
 MenuState::MenuState(hg2d::Engine &engine) : AGameState(engine) {
 	mMenuFrame = nullptr;

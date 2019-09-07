@@ -1,5 +1,7 @@
 #include "PauseState.hpp"
-#include "hg2d/Core.hpp"
+#include "hg2d/GameState/GameStateSystem.hpp"
+#include "hg2d/GUI/GUISystem.hpp"
+#include "hg2d/GUI/GUIButton.hpp"
 
 PauseState::PauseState(hg2d::Engine &engine) : AGameState(engine) {
 	mPauseFrame = nullptr;

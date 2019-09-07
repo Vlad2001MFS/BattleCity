@@ -1,5 +1,5 @@
 #pragma once
-#include "hg2d/Scene.hpp"
+#include "hg2d/Scene/SceneSystem.hpp"
 
 class PlayerComponent : public hg2d::AECSComponent {
 public:
